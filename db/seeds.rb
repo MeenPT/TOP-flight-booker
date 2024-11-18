@@ -1,9 +1,34 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+airports_data = [
+  {
+    iata: "ATL",
+    name: "Hartsfield–Jackson Atlanta International Airport",
+    location: "Atlanta, Georgia",
+    country: "United States"
+  },
+  {
+    iata: "DXB",
+    name: "Dubai International Airport",
+    location: "Garhoud, Dubai, Dubai",
+    country: "United Arab Emirates"
+  },
+  {
+    iata: "LHR",
+    name: "Heathrow Airport",
+    location: "Hillingdon, London",
+    country: "United Kingdom"
+  },
+  {
+    iata: "HND",
+    name: "Tokyo Haneda Airport",
+    location: "Ōta, Tokyo",
+    country: "Japan"
+  },
+  {
+    iata: "BKK",
+    name: "Suvarnabhumi Airport",
+    location: "Racha Thewa, Bangkok metro",
+    country: "Thailand"
+  }
+]
+
+Airport.create(airports_data)

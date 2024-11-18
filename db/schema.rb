@@ -15,8 +15,12 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_18_121011) do
   enable_extension "pg_catalog.plpgsql"
 
   create_table "airports", force: :cascade do |t|
-    t.string "iata"
+    t.string "iata", null: false
+    t.string "name", null: false
+    t.string "location", null: false
+    t.string "country", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["iata"], name: "index_airports_on_iata", unique: true
   end
 end
