@@ -31,4 +31,39 @@ airports_data = [
   }
 ]
 
-Airport.create(airports_data)
+airports = Airport.create(airports_data)
+
+def random_time(start_time = DateTime.now, end_time = (DateTime.now + 1.years))
+  start_timestamp = start_time.to_i
+  end_timestamp = end_time.to_i
+
+  random_timestamp = rand(start_timestamp...end_timestamp)
+
+  Time.at(random_timestamp).to_datetime
+end
+
+def random_duration
+  hours = rand(1...15).hours
+  minutes = rand(1...59).minutes
+
+  (hours + minutes).iso8601
+end
+
+airports.each do |airport|
+  destination_options = airports.reject { |item| item == airport }
+
+  Flight.create([
+    {
+      departure_airport_id: airport.id,
+      arrival_airport_id: destination_options.sample.id,
+      depart_at: random_time,
+      duration: random_duration
+    },
+    {
+      departure_airport_id: airport.id,
+      arrival_airport_id: destination_options.sample.id,
+      depart_at: random_time,
+      duration: random_duration
+    }
+  ])
+end
