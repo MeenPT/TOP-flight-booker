@@ -1,24 +1,34 @@
-<div>
-  <h2>Find the right flights for you</h2>
+<div class="border rounded-3 p-4">
+  <h2 class="mb-4">Filter Flights</h2>
   <%= form_with url: flights_path, method: :get do |f| %>
-  <div>
-    <%= f.label :from %>
-    <%= f.select :from, @airport_options %>
-  </div>
-  <div>
-    <%= f.label :to %>
-    <%= f.select :to, @airport_options %>
-  </div>
-  <div>
-    <%= f.label :tickets %>
-    <%= f.select :tickets, [1, 2, 3, 4] %>
-  </div>
-  <div>
-    <%= f.label :depart_date %>
-    <%= f.select :depart_date, @flight_date_options %>
-  </div>
-  <div>
-    <button type="submit">Apply Filters</button>
-  </div>
+    <div class="vstack gap-3">
+      <div class="hstack gap-3">
+        <div class="w-100">
+          <%= f.label :from, class: "form-label" %>
+          <%= f.select :from, @airport_options,  {}, { class: "form-select" } %>
+        </div>
+        <div class="w-100">
+          <%= f.label :to, class: "form-label" %>
+          <%= f.select :to, @airport_options, {}, { class: "form-select"} %>
+        </div>
+      </div>
+      <div class="hstack gap-3">
+        <div class="w-100">
+          <%= f.label :tickets, class: "form-label" %>
+          <%= f.select :tickets, [1, 2, 3, 4], {}, { class: "form-select"} %>
+        </div>
+        <div class="w-100">
+          <%= f.label :depart_date, class: "form-label" %>
+          <%= f.select :depart_date, @flight_date_options, {}, { class: "form-select"} %>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 hstack gap-3">
+      <button type="submit" class="btn btn-primary">
+        Apply Filters
+        <i class="bi bi-funnel ms-2"></i>
+      </button>
+      <%= link_to "Clear Filters", root_path, class: "btn btn-outline-secondary" %>
+    </div>
   <% end %>
 </div>
