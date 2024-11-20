@@ -9,7 +9,9 @@
       </div>
     </div>
     <div class="mt-4">
-      <%= link_to "Details", flight, class: "btn btn-sm btn-outline-secondary" %>
+      <%= link_to flight, class: "btn btn-sm btn-outline-secondary" do %>
+        Details <i class="bi bi-eye ms-2"></i>
+      <% end %>
     </div>
   </div>
 </article>

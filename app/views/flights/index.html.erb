@@ -4,8 +4,12 @@
 <section class="mt-5">
   <h2>Available Flights (<%= @flights.count %>)</h2>
   <div class="mt-4 vstack gap-3">
-    <% @flights.each do |flight| %>
-      <%= render "flight", flight: flight %>
+    <% if @flights.empty? %>
+      <%= render "no_results" %>
+    <% else %>
+      <% @flights.each do |flight| %>
+        <%= render "flight", flight: flight %>
+      <% end %>
     <% end %>
   </div>
 </section>
