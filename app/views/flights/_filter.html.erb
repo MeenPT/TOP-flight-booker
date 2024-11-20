@@ -1,0 +1,24 @@
+<div>
+  <h2>Find the right flights for you</h2>
+  <%= form_with url: flights_path, method: :get do |f| %>
+  <div>
+    <%= f.label :from %>
+    <%= f.select :from, @airport_options %>
+  </div>
+  <div>
+    <%= f.label :to %>
+    <%= f.select :to, @airport_options %>
+  </div>
+  <div>
+    <%= f.label :tickets %>
+    <%= f.select :tickets, [1, 2, 3, 4] %>
+  </div>
+  <div>
+    <%= f.label :depart_date %>
+    <%= f.select :depart_date, @flight_date_options %>
+  </div>
+  <div>
+    <button type="submit">Apply Filters</button>
+  </div>
+  <% end %>
+</div>
