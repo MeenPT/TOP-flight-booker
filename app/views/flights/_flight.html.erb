@@ -2,10 +2,15 @@
   <div class="card-body">
     <h3 class="h5 card-title"><%= flight.departure_airport.iata %> <i role="presentation" aria-disabled="true" class="bi bi-arrow-right mx-2"></i> <%= flight.arrival_airport.iata %></h3>
     <hr>
-    <div class="card-text">
+    <div class="card-text hstack gap-3">
       <div class="hstack">
-        <i class="bi bi-calendar-check"></i>
-        <time class="ms-2" datetime="<%= flight.depart_at %>"><%= flight.depart_at.strftime("%d/%m/%Y") %></time>
+        <i class="bi bi-airplane"></i>
+        <time class="ms-2" aria-label="flight take off at" datetime="<%= flight.depart_at %>"><%= flight.depart_at.strftime("%d/%m/%y   %H:%M") %></time>
+      </div>
+      <div class="vr"></div>
+      <div class="hstack">
+        <i class="bi bi-clock-history"></i>
+        <time class="ms-2" aria-label="flight duration" datetime="<%= flight.duration.iso8601 %>"><%= flight.readable_duration %></time>
       </div>
     </div>
     <div class="mt-4">
