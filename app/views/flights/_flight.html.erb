@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="mt-4">
-      <%= button_to "Book", "/bookings/new", method: :get, params: { passsengers: params[:tickets], flight_id: flight}, class: "btn btn-sm btn-outline-secondary" %>
+      <%= button_to "Book", new_booking_path, method: :get, params: { passsengers: params[:tickets] || 1, flight_id: flight}, class: "btn btn-sm btn-outline-secondary" %>
     </div>
   </div>
 </article>
