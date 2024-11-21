@@ -5,21 +5,21 @@
       <div class="hstack gap-3">
         <div class="w-100">
           <%= f.label :from, class: "form-label" %>
-          <%= f.select :from, @airport_options,  {}, { class: "form-select" } %>
+          <%= f.select :from, options_for_select(@airport_options, params[:from]),  {}, { class: "form-select", aria: { label: "Departure airport"} } %>
         </div>
         <div class="w-100">
           <%= f.label :to, class: "form-label" %>
-          <%= f.select :to, @airport_options, {}, { class: "form-select"} %>
+          <%= f.select :to, options_for_select(@airport_options, params[:to]), {}, { class: "form-select", aria: { label: "Arrival airport"}} %>
         </div>
       </div>
       <div class="hstack gap-3">
         <div class="w-100">
           <%= f.label :tickets, class: "form-label" %>
-          <%= f.select :tickets, [1, 2, 3, 4], {}, { class: "form-select"} %>
+          <%= f.select :tickets, options_for_select([1, 2, 3, 4], params[:tickets]), {}, { class: "form-select" } %>
         </div>
         <div class="w-100">
           <%= f.label :depart_date, class: "form-label" %>
-          <%= f.select :depart_date, @flight_date_options, {}, { class: "form-select"} %>
+          <%= f.select :depart_date, options_for_select(@flight_date_options, params[:depart_date]), {}, { class: "form-select"} %>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
         Apply Filters
         <i class="bi bi-funnel ms-2"></i>
       </button>
-      <%= link_to "Clear Filters", root_path, class: "btn btn-outline-secondary" %>
+      <%= link_to "Clear Filters", flights_path, class: "btn btn-outline-secondary", method: :get, data: { turbo: false } %>
     </div>
   <% end %>
 </div>
