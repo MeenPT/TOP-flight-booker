@@ -26,11 +26,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_21_072941) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "flight_id", null: false
-    t.bigint "passenger_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flight_id"], name: "index_bookings_on_flight_id"
-    t.index ["passenger_id"], name: "index_bookings_on_passenger_id"
   end
 
   create_table "flights", force: :cascade do |t|
@@ -52,7 +50,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_21_072941) do
   end
 
   add_foreign_key "bookings", "flights"
-  add_foreign_key "bookings", "passengers"
   add_foreign_key "flights", "airports", column: "arrival_airport_id"
   add_foreign_key "flights", "airports", column: "departure_airport_id"
 end
