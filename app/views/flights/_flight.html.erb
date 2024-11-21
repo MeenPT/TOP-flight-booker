@@ -14,9 +14,7 @@
       </div>
     </div>
     <div class="mt-4">
-      <%= link_to flight, class: "btn btn-sm btn-outline-secondary" do %>
-        Details <i class="bi bi-eye ms-2"></i>
-      <% end %>
+      <%= button_to "Book", "/bookings/new", method: :get, params: { passsengers: params[:tickets], flight_id: flight}, class: "btn btn-sm btn-outline-secondary" %>
     </div>
   </div>
 </article>
