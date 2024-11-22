@@ -8,6 +8,6 @@ class Flight < ApplicationRecord
     hours = self.duration.parts[:hours]
     minutes = self.duration.parts[:minutes]
 
-    "#{hours} hours and #{minutes} minutes"
+    "#{hours} H #{minutes} M"
   end
 end

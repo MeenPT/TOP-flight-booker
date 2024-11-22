@@ -1,0 +1,39 @@
+<div class="border rounded-3 p-4 vstack gap-4">
+  <div class="hstack gap-4 ">
+    <article class="border rounded-2 p-4 w-100" >
+      <h3 class="lead text-secondary" >Departure Airport</h3>
+      <p class="h2 mt-4 mb-2 font-monospace"><%= flight.departure_airport.iata %></p>
+      <p class="text-body-secondary fs-6 fw-light truncate">( <%= flight.departure_airport.name %> )</p>
+    </article>
+    <article class="border rounded-2 p-4 w-100" >
+      <h3 class="lead text-secondary" >Arrival Airport</h3>
+      <p class="h2 mt-4 mb-2 font-monospace"><%= flight.arrival_airport.iata %></p>
+      <p class="text-body-secondary fs-6 fw-light truncate">( <%= flight.arrival_airport.name %> )</p>
+    </article>
+  </div>
+  <div class="hstack gap-4 border rounded-2">
+    <article class="p-4 w-100">
+      <h3 class="lead text-secondary">Take Off Date</h3>
+      <div class="h4 mt-4 mb-2 font-monospace">
+        <i class="bi bi-calendar-check opacity-50"></i>
+        <time datetime="<%= flight.depart_at.to_date %>"><%= flight.depart_at.strftime("%d %^b %Y") %></time>
+      </div>
+    </article>
+    <div class="vr my-3"></div>
+    <article class="p-4 w-100">
+      <h3 class="lead text-secondary">Take Off Time</h3>
+      <div class="h4 mt-4 mb-2 font-monospace">
+        <i class="bi bi-clock opacity-50"></i>
+        <time datetime="<%= flight.depart_at.to_time %>"><%= flight.depart_at.strftime("%I:%M %p") %></time>
+      </div>
+    </article>
+    <div class="vr my-3"></div>
+    <article class="p-4 w-100">
+      <h3 class="lead text-secondary">Flight Duration</h3>
+      <div class="h4 mt-4 mb-2 font-monospace">
+        <i class="bi bi-hourglass opacity-50"></i>
+        <time datetime="<%= flight.duration.iso8601 %>"><%= flight.readable_duration %></time>
+      </div>
+    </article>
+  </div>
+</div>
