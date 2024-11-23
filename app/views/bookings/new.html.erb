@@ -1,4 +1,10 @@
-<section>
-  <h2 class="mb-4">Flight Details</h2>
-  <%= render "flight_details", flight: @flight %>
-</section>
+<div class="vstack gap-5">
+  <section>
+    <h2 class="mb-4">Flight Details</h2>
+    <%= render "flight_details", flight: @flight %>
+  </section>
+  <section>
+    <h2 class="mb-4">Passengers Information</h2>
+    <%= render "booking_form" %>
+  </section>
+</div>

@@ -1,5 +1,8 @@
-<div class="border rounded-3 p-4 vstack gap-4">
-  <div class="hstack gap-4 ">
+<div class="border rounded-3 p-4">
+  <div class="border rounded-2 px-4 py-2 text-center">
+    <p class="my-0 fw-bold">ID: <%= flight.id %></p>
+  </div>
+  <div class="hstack gap-4 my-4">
     <article class="border rounded-2 p-4 w-100" >
       <h3 class="lead text-secondary" >Departure Airport</h3>
       <p class="h2 mt-4 mb-2 font-monospace"><%= flight.departure_airport.iata %></p>
