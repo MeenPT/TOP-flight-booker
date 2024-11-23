@@ -1,0 +1,28 @@
+<div class="vstack gap-5">
+  <h1>Booking Details</h1>
+  <section>
+    <h2 class="mb-4"><%= "Passenger".pluralize(@booking.passengers.count) %></h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @booking.passengers.each_with_index do |passenger, index| %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= passenger.name %></td>
+            <td><%= passenger.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h2 class="mb-4">Flight Details</h2>
+    <%= render "flight_details", flight: @booking.flight %>
+  </section>
+</div>

@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     redirect_to root_path if !params[:flight_id].present?
 
