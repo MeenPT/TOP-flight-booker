@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to root_path, notice: "Booking was successfully created!"
     else
+      @flight = Flight.find(booking_params[:flight_id])
       render :new, status: :unprocessable_entity
     end
   end
