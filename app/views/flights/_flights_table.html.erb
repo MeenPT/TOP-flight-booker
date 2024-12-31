@@ -1,0 +1,23 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Departure Airport</th>
+      <th scope="col">Arrival Airport</th>
+      <th scope="col">Date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% flights.each do |flight| %>
+      <tr>
+        <th scope="row"><%= flight.id %></th>
+        <td><%= flight.departure_airport.iata %></td>
+        <td><%= flight.arrival_airport.iata %></td>
+        <td><%= flight.formatted_flight_date %></td>
+        <td>
+          <button class="btn btn-outline-primary btn-sm">Book</button>
+        </td>
+      </tr>
+    <% end %>
+  </table>

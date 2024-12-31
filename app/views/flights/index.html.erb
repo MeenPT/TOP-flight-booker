@@ -1,4 +1,6 @@
-<h1>Available Flights (<%= @flights.length %>)</h1>
 <section>
-  <%= render @flights %>
+  <h1>Available Flights (<%= @flights.length %>)</h1>
+  <div class="mt-4">
+    <%= render "flights_table", flights: @flights %>
+  </div>
 </section>
