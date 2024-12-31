@@ -1,0 +1,26 @@
+<div>
+  <%= form_with url: flights_path, method: :get do |f| %>
+    <div class="row g-3">
+      <div class="col-12 col-sm-6 col-lg-3">
+        <%= f.label :departure_airport, class: "form-label" %>
+        <%= f.collection_select :departure_airport, Airport.order(:iata), :id, :iata, { prompt: "Any", selected: params[:departure_airport] }, { class: "form-select" }  %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <%= f.label :arrival_airport, class: "form-label" %>
+        <%= f.collection_select :arrival_airport, Airport.order(:iata), :id, :iata, { prompt: "Any", selected: params[:arrival_airport] }, { class: "form-select" } %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <%= f.label :passengers, class: "form-label" %>
+        <%= f.select :passengers, 1..4, { selected: params[:passengers] || 1 }, { class: "form-select"} %>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <%= f.label :date, class: "form-label" %>
+        <%= f.select :date, flight_dates, { prompt: "Select Date", selected: params[:date] }, { class: "form-select" } %>
+      </div>
+    </div>
+    <div class="mt-4 hstack gap-2">
+      <%= f.submit "Apply Filters", class: "btn btn-primary" %>
+      <%= link_to "Clear Filters", flights_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>

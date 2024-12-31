@@ -1,3 +1,9 @@
+<section class="mb-5">
+  <div class="border p-4 rounded-2">
+    <h2 class="mb-4">Filter Flights</h2>
+    <%= render "flights_filter", flight_dates: @flight_dates %>
+  </div>
+</section>
 <section>
   <h1>Available Flights (<%= @flights.length %>)</h1>
   <div class="mt-4">
