@@ -16,8 +16,9 @@
         <td><%= flight.arrival_airport.iata %></td>
         <td><%= flight.formatted_flight_date %></td>
         <td>
-          <button class="btn btn-outline-primary btn-sm">Book</button>
+          <%= link_to "Book", new_booking_path(flight_id: flight.id, passengers: params[:passengers] || 1), class: "btn btn-outline-primary btn-sm" %>
         </td>
       </tr>
     <% end %>
-  </table>
+  </tbody>
+</table>
