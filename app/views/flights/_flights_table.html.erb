@@ -1,4 +1,4 @@
-<table class="table table-striped table-bordered">
+<table class="table table-responsive table-striped table-bordered text-center">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -12,8 +12,8 @@
     <% flights.each do |flight| %>
       <tr>
         <th scope="row"><%= flight.id %></th>
-        <td><%= flight.departure_airport.iata %></td>
-        <td><%= flight.arrival_airport.iata %></td>
+        <td class="font-monospace"><%= flight.departure_airport.iata %></td>
+        <td class="font-monospace"><%= flight.arrival_airport.iata %></td>
         <td><%= flight.formatted_flight_date %></td>
         <td>
           <%= link_to "Book", new_booking_path(flight_id: flight.id, passengers: params[:passengers] || 1), class: "btn btn-outline-primary btn-sm" %>
