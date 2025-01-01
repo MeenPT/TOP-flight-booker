@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def new
     redirect_to flights_path if !params[:flight_id].present?
 
@@ -19,7 +23,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to flights_path, notice: "Successfully booked the flight!"
+      redirect_to @booking, notice: "Booked flight success."
     else
       render :new, status: :unprocessable_entity
     end

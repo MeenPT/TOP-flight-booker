@@ -19,6 +19,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body>
+    <%= render "shared/alerts" %>
     <main class="container py-5">
       <%= yield %>
     </main>

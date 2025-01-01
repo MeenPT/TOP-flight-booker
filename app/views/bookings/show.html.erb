@@ -1,0 +1,11 @@
+<h1>Bookings Details</h1>
+<section class="my-5">
+  <h2 class="lead">Flight Information</h2>
+  <%= render "flight_details", flight: @booking.flight %>
+</section>
+<section class="my-5">
+  <h2 class="lead">Passengers</h2>
+  <div class="border rounded-2 p-3">
+    <%= render "passengers_table", passengers: @booking.passengers %>
+  </div>
+</section>

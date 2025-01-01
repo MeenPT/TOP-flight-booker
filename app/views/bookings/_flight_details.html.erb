@@ -1,0 +1,22 @@
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <article class="ms-2 me-auto">
+      <h3 class="text-secondary fs-6">Departure Airport</h3>
+      <p class="fs-3 font-monospace"><%= flight.departure_airport.iata %></p>
+    </article>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <article class="ms-2 me-auto">
+      <h3 class="text-secondary fs-6">Arrival Airport</h3>
+      <p class="fs-3 font-monospace"><%= flight.arrival_airport.iata %></p>
+    </article>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <article class="ms-2 me-auto">
+      <h3 class="text-secondary fs-6">Take off at</h3>
+      <time class="fs-4 font-monospace" datetime="<%= flight.start %>">
+        <%= "#{flight.formatted_flight_date}   #{flight.formatted_flight_time}" %>
+      </time>
+    </article>
+  </li>
+</ul>
