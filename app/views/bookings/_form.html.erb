@@ -1,0 +1,24 @@
+<%= form_with model: @booking do |f| %>
+  <%= f.hidden_field :flight_id, value: params[:flight_id] %>
+  <div class="vstack gap-4">
+    <%= f.fields_for :passengers do |passengers_form| %>
+      <div class="border p-3 rounded-2">
+        <p class="font-monospace text-secondary fs-6 fw-lighter">Passenger <%= passengers_form.index + 1 %></p>
+        <div class="vstack gap-2">
+          <div>
+            <%= passengers_form.label :name, class: "form-label" %>
+            <%= passengers_form.text_field :name, class: "form-control #{'is-invalid' if passengers_form.object.errors[:name].any?}", autofocus: passengers_form.index == 0 %>
+          </div>
+          <div>
+            <%= passengers_form.label :email, class: "form-label" %>
+            <%= passengers_form.email_field :email, class: "form-control #{'is-invalid' if passengers_form.object.errors[:name].any?}" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-4 hstack gap-3">
+    <%= f.submit "Complete Booking", class: "btn btn-primary"  %>
+    <%= link_to "Cancel", flights_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>
