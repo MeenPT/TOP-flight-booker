@@ -1,0 +1,10 @@
+<h1>Flight booking confirmation</h1>
+<p>Hello, <%= @passenger.name %>, you have successfully booked a flight with Flight Booker</p>
+<section>
+  <h2>Flight details</h2>
+  <ul>
+    <li>Departure airport: <%= @flight.departure_airport.iata %></li>
+    <li>Arrival airport: <%= @flight.arrival_airport.iata %></li>
+    <li>Depart at: <%= "#{@flight.formatted_flight_time}" "#{@flight.formatted_flight_date}" %></li>
+  </ul>
+</section>

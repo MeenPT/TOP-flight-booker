@@ -1,0 +1,9 @@
+Flight booking confirmation
+=================================
+
+Hello, <%= @passenger.name %>, you have successfully booked a flight with Flight Booker
+
+Flight details
+    Departure airport: <%= @flight.departure_airport.iata %>
+    Arrival airport: <%= @flight.arrival_airport.iata %>
+    Depart at: <%= "#{@flight.formatted_flight_time}" "#{@flight.formatted_flight_date}" %>
